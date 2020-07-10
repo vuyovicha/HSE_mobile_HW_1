@@ -1,17 +1,19 @@
 package com.example.hse_mobile_hw_1
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.IllegalArgumentException
 
-class MainAdapter(private val adapterDataList: List<IRow>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MainAdapter(private val adapterDataList: List<IRow>, private val сontextActivity: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface IRow
+    // srcCompat attribute can be changed, just need to pass the image somehow
     class MainHeader(val name: String, val grade: String, val github_url: String) : IRow // todo how to transfer an image?
     class ProjectIdea(val projectIdea: String) : IRow
     class SkillHeader() : IRow
-    class Skill(val language: String, val year: String) : IRow
+    class Skill(val language: String, val yearIndex: String) : IRow
 
     companion object {
         private const val MAIN_HEADER = 0
@@ -30,7 +32,7 @@ class MainAdapter(private val adapterDataList: List<IRow>) : RecyclerView.Adapte
                     .inflate(R.layout.project_idea, parent, false))
             SKILL_HEADER -> SkillHeaderViewHolder(
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.skills_headers, parent, false))
+                    .inflate(R.layout.skills_headers, parent, false), сontextActivity)
             SKILL -> SkillViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.skill, parent, false))
@@ -52,7 +54,18 @@ class MainAdapter(private val adapterDataList: List<IRow>) : RecyclerView.Adapte
         when (holder.itemViewType) {
             MAIN_HEADER -> (holder as MainHeaderViewHolder).onBindMainHeader(adapterDataList[position] as MainHeader)
             PROJECT_IDEA -> (holder as ProjectIdeaViewHolder).onBindProjectIdea(adapterDataList[position] as ProjectIdea)
-            SKILL -> (holder as SkillViewHolder).onBindSkill(adapterDataList[position] as Skill)
+            SKILL_HEADER -> (holder as SkillHeaderViewHolder).onBindSkillHeader(adapterDataList[position] as SkillHeader)
+            SKILL -> {
+                //todo check here whether to display a skill according to filter + green dot
+                //maybe this should be done before inflate?
+                if (MainActivity.filterStates[(adapterDataList[position] as Skill).yearIndex.toInt()]) {
+                    (holder as SkillViewHolder).showSkill()
+                    (holder as SkillViewHolder).onBindSkill(adapterDataList[position] as Skill)
+                }
+                else {
+                    (holder as SkillViewHolder).hideSkill()
+                }
+            }
             else -> { }
         }
 

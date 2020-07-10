@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply from: 'C:/Users/User/AndroidStudioProjects/HSE_mobile_HW_1/code_quality_tools/ktlint.gradle'
+apply from: '../code_quality_tools/ktlint.gradle'
 
 
 android {
