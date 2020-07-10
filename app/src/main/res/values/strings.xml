@@ -5,11 +5,13 @@
     <string name="github">Github</string>
     <string name="github_url">https://github.com/vuyovicha</string>
     <string name="idea_header">Идея проекта</string>
-    <string name="idea_text">Тут скоро появится идея. Не пропустите!</string>
+    <string name="idea_text">Все мы любим путешествовать по разным городам и странам. То, что мы едим во время интересной поездки, может как испортить всё путешествие, так и вызвать незабываемые впечатления. Поэтому необходимо создать мобильное приложение для всех тех, кто путешествует в самые разные места, которое будет по выбранным пользователем критериями предлагать различные варианты ресторанов и кафе, которые можно посетить по пути из точки А в точку В (например, из отеля к какому-нибудь музею). Программа предложит такие варианты, которые требуют "минимальной" корректировки маршрута с целью экономии времени.</string>
     <string name="language">TextView</string>
     <string name="years">amount_of_years</string>
     <string name="skills_header">Навыки</string>
     <string name="apply_button_text">Применить</string>
+    <string name="main_title">О себе</string>
+    <string name="filter_titile">Фильтр навыков</string>
     <string-array
         name="languages_skills">
         <item>C#</item>

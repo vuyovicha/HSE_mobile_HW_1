@@ -4,7 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="150dp"
+    android:background="@drawable/dummy_back"
+    android:elevation="10dp"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp">
 
     <ImageView
         android:id="@+id/imageView"
@@ -48,11 +52,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/dummy_back"
+        android:backgroundTint="@android:color/white"
+        android:shadowColor="#9C27B0"
         android:text="@string/github"
+        android:textColor="#9C27B0"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.74"
+        app:rippleColor="#9C27B0"
+        app:strokeColor="#9C27B0"
+        app:strokeWidth="4dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
